@@ -1,0 +1,17 @@
+REQUIREMENTS HOTFIX
+
+Bu dosyadaki requirements.txt, Render deploy sırasında takılan build'i hızlandırmak için optimize edildi.
+
+Yapılan değişiklikler:
+- lxml kaldırıldı
+- google-generativeai kaldırıldı
+
+Sebep:
+- lxml Render free/starter ortamında source build'e düşüp deploy'u yavaşlatabiliyor.
+- bot.py Gemini API'yi zaten doğrudan requests ile çağırıyor, google-generativeai paketi zorunlu değil.
+
+Yapılacaklar:
+1. ZIP'i aç
+2. requirements.txt'yi GitHub repo köküne koy
+3. commit + push yap
+4. Render'da "Manual Deploy -> Deploy latest commit"
