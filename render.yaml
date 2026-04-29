@@ -1,0 +1,66 @@
+services:
+  - type: web
+    name: bist-multi-bot
+    env: python
+    region: frankfurt  # EU bölgesi - Türkiye'ye en yakın
+    plan: starter       # $7/ay — 512MB RAM, yeterli
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 120 bot:app
+    healthCheckPath: /health
+    envVars:
+      # ── Telegram Bot Tokenleri ─────────────────────────────────────────
+      - key: TELEGRAM_TOKEN
+        sync: false          # BotFather'dan al → CeoWarrenBot
+      - key: SCANNER_BOT_TOKEN
+        sync: false          # BotFather'dan al → ScannerAgentBot
+      - key: NEWS_BOT_TOKEN
+        sync: false          # BotFather'dan al → NewsScanAgentBot
+      - key: TRADEBOOK_BOT_TOKEN
+        sync: false          # BotFather'dan al → TradeBookAgentBot
+      - key: PROF_BOT_TOKEN
+        sync: false          # BotFather'dan al → ProfGenBot
+      - key: ANALYSIS_BOT_TOKEN
+        sync: false          # İleride eklenecek → AnalysisBot
+      # ── Kanal & Topic ID'leri ──────────────────────────────────────────
+      - key: CHANNEL_ID
+        value: "-1003827065867"
+      - key: TOPIC_CEO
+        value: "7"
+      - key: TOPIC_SCANNER
+        value: "754"
+      - key: TOPIC_ANALYSIS
+        value: "13"
+      - key: TOPIC_NEWS
+        value: "9"
+      - key: TOPIC_TRADEBOOK
+        value: "229"
+      - key: TOPIC_PROF
+        value: "17"
+      - key: TOPIC_DEBUG
+        value: "15"
+      # ── Render Servisi ────────────────────────────────────────────────
+      - key: RENDER_URL
+        sync: false          # https://bist-multi-bot.onrender.com (deploy sonrası)
+      # ── Veritabanı ────────────────────────────────────────────────────
+      - key: DATABASE_URL
+        sync: false          # Render PostgreSQL bağlantı URL'i
+      # ── AI API Anahtarları ────────────────────────────────────────────
+      - key: GEMINI_KEY
+        sync: false
+      - key: GEMINI_KEY2
+        sync: false
+      - key: GEMINI_KEY3
+        sync: false
+      - key: GROQ_KEY
+        sync: false
+      - key: GROQ_KEY2
+        sync: false
+      - key: GROQ_KEY3
+        sync: false
+      # ── Admin & Sistem ────────────────────────────────────────────────
+      - key: WATCHDOG_CHAT_ID
+        sync: false          # Kendi Telegram chat ID'n
+      - key: TD_DELAY
+        value: "1.5"
+      - key: PORT
+        value: "10000"

@@ -1,0 +1,61 @@
+# ════════════════════════════════════════════════════════════════════════
+#  .gitignore — BIST Multi-Bot
+# ════════════════════════════════════════════════════════════════════════
+
+# ── GİZLİ DOSYALAR (ASLA PUSH ETME!) ────────────────────────────────────
+.env
+.env.local
+.env.production
+*.pem
+*.key
+secrets/
+
+# ── PYTHON ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── SANAL ORTAM ───────────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env.bak
+ENV/
+env.bak/
+
+# ── VERİTABANI / YEDEK ───────────────────────────────────────────────────
+*.db
+*.sqlite3
+bistbackup*.json
+
+# ── LOG DOSYALARI ─────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS / EDITOR ───────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── JUPYTER ──────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
