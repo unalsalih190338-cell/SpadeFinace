@@ -1,26 +1,25 @@
-# ── Telegram ──────────────────────────────────────────────────────────────────
-pyTelegramBotAPI==4.18.0
+# Python 3.11 uyumlu — tüm paketlerin 3.11 wheel'leri PyPI'da mevcut
 
-# ── Web Framework ─────────────────────────────────────────────────────────────
+pyTelegramBotAPI==4.18.0
 Flask==3.0.3
 gunicorn==22.0.0
 
-# ── Veri & Analiz (pre-built wheel'ler) ───────────────────────────────────────
+# Veri analizi — Python 3.11 wheel'leri mevcut
 pandas==2.2.2
 numpy==1.26.4
 yfinance==0.2.40
 
-# ── Veritabanı (binary = derleme gerektirmez) ─────────────────────────────────
+# Veritabanı
 psycopg2-binary==2.9.9
 
-# ── AI (requests tabanlı — derleme yok) ──────────────────────────────────────
+# AI
 groq==0.9.0
 requests==2.32.3
 
-# ── Feed & Parse (lxml yerine pure-python html.parser kullanılır) ─────────────
+# Feed & Parse
 feedparser==6.0.11
 beautifulsoup4==4.12.3
 
-# ── Zaman & Ortam ─────────────────────────────────────────────────────────────
+# Sistem
 pytz==2024.1
 python-dotenv==1.0.1
